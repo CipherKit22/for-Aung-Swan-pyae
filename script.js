@@ -1,4 +1,4 @@
-let password = "1234";
+let password = "472021";
 let inputString = "";
 let countdownTimer;
 
@@ -33,11 +33,19 @@ function confirmInput() {
 function startCountdown() {
   goToScreen("screen-countdown");
   let timeLeft = 3;
+  const cuteMessages = [
+    "3",
+    "2", 
+    "1",
+    "Ready!"
+  ];
 
   function updateCountdown() {
-    document.getElementById("countdownDisplay").innerText = timeLeft ;
+    if (timeLeft >= 0) {
+      document.getElementById("countdownDisplay").innerText = cuteMessages[3 - timeLeft];
+    }
     timeLeft--;
-    if (timeLeft < 0) {
+    if (timeLeft < -1) {
       clearInterval(countdownTimer);
       goToScreen("screen-greeting");
     }
