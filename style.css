@@ -208,8 +208,8 @@ input[type="password"] {
 
 .envelope {
   position: relative;
-  width: 280px;
-  height: 180px;
+  width: 400px;
+  height: 260px;
   margin-bottom: 20px;
 }
 
@@ -217,11 +217,11 @@ input[type="password"] {
   position: absolute;
   top: 0;
   left: 0;
-  width: 280px;
-  height: 90px;
+  width: 400px;
+  height: 130px;
   background: linear-gradient(135deg, #f8bbd0 70%, #ce93d8 100%);
-  border-top-left-radius: 18px 36px;
-  border-top-right-radius: 18px 36px;
+  border-top-left-radius: 25px 50px;
+  border-top-right-radius: 25px 50px;
   z-index: 3;
   cursor: pointer;
   transition: transform 1s cubic-bezier(.77,0,.18,1);
@@ -249,13 +249,13 @@ input[type="password"] {
 
 .body {
   position: absolute;
-  top: 45px;
+  top: 65px;
   left: 0;
-  width: 280px;
-  height: 135px;
+  width: 400px;
+  height: 195px;
   background: linear-gradient(135deg, #fff0f5 70%, #e1bee7 100%);
-  border-bottom-left-radius: 18px 36px;
-  border-bottom-right-radius: 18px 36px;
+  border-bottom-left-radius: 25px 50px;
+  border-bottom-right-radius: 25px 50px;
   box-shadow: 0 4px 16px rgba(199,21,133,0.10);
   z-index: 2;
   border: 2px solid #e91e63;
@@ -276,10 +276,10 @@ input[type="password"] {
 
 .letter {
   position: absolute;
-  top: 60px;
-  left: 25px;
-  width: 230px;
-  height: 110px;
+  top: 85px;
+  left: 35px;
+  width: 330px;
+  height: 160px;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(199,21,133,0.18);
@@ -305,11 +305,11 @@ input[type="password"] {
   opacity: 0;
   transform: scale(0.95);
   transition: opacity 0.7s cubic-bezier(.77,0,.18,1), transform 0.7s cubic-bezier(.77,0,.18,1);
-  padding: 12px;
+  padding: 15px;
   text-align: center;
   color: #c71585;
   font-family: 'Segoe Script', cursive, sans-serif;
-  font-size: 0.7em;
+  font-size: 0.85em;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(199,21,133,0.12);
@@ -324,7 +324,7 @@ input[type="password"] {
   justify-content: center;
   z-index: 1;
   pointer-events: auto;
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 .letter-content h2 {
