@@ -1,0 +1,417 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffe4e1; /* Light pink background */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.screen {
+  display: none;
+  /* Initially hide all screens */
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 228, 225, 0.8);
+  /* Semi-transparent light pink */
+  z-index: 10;
+  /* Ensure it's on top */
+  justify-content: center;
+  align-items: center;
+}
+
+.screen.active {
+  display: flex;
+  /* Show active screen */
+}
+
+.card {
+  background-color: #fff0f5; /* Light pink card */
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 80%;
+  max-width: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.corner {
+  position: absolute;
+  font-size: 2em;
+  color: #e91e63; /* Pink */
+}
+
+.top-left {
+  top: 10px;
+  left: 10px;
+}
+
+.top-right {
+  top: 10px;
+  right: 10px;
+}
+
+.bottom-left {
+  bottom: 10px;
+  left: 10px;
+}
+
+.bottom-right {
+  bottom: 10px;
+  right: 10px;
+}
+
+h1 {
+  color: #e91e63; /* Pink */
+  margin-bottom: 20px;
+}
+
+.heart {
+  color: #ff69b4; /* Hot pink */
+}
+
+input[type="password"] {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #dda0dd; /* Light purple border */
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.keypad-3x4 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.keypad-3x4 button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #dda0dd; /* Light purple */
+  color: white;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.keypad-3x4 button:hover {
+  background-color: #c71585; /* Medium violet red */
+}
+
+.keypad-3x4 button.clear {
+  background-color: #ffb6c1; /* Light pink */
+  color: #c71585; /* Medium violet red */
+}
+
+.keypad-3x4 button.confirm {
+  background-color: #9370db; /* Medium purple */
+}
+
+/* Countdown Screen Styles */
+#screen-countdown {
+  background-color: rgba(221, 160, 221, 0.8); /* Light purple */
+  color: white;
+  font-size: 2em;
+  text-align: center;
+}
+
+#countdownDisplay {
+  font-size: 3em;
+}
+
+/* Greeting Screen Styles */
+#screen-greeting {
+  background-color: rgba(255, 182, 193, 0.8); /* Light pink */
+  color: #c71585; /* Medium violet red */
+  text-align: center;
+}
+
+.greeting-card {
+  background-color: #f08080; /* Light coral */
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 500px;
+  position: relative;
+}
+
+.border-text {
+  color: white;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.oval {
+  background-color: #ffc0cb; /* Pink */
+  border-radius: 50%;
+  padding: 40px;
+  margin: 20px auto;
+  width: 70%;
+}
+
+.oval h1 {
+  color: #c71585; /* Medium violet red */
+  margin-bottom: 10px;
+}
+
+.oval p {
+  color: white;
+  font-size: 1.2em;
+}
+
+.bow {
+  font-size: 3em;
+  margin-top: 10px;
+}
+
+.buttons {
+  margin-top: 30px;
+}
+
+.buttons button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e91e63; /* Pink */
+  color: white;
+  font-size: 1.1em;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: background-color 0.3s ease;
+}
+
+.buttons button:hover {
+  background-color: #c71585; /* Medium violet red */
+}
+
+
+.envelope-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #fff0f5; /* Light pink */
+}
+
+.envelope {
+  position: relative;
+  width: 280px;
+  height: 180px;
+  margin-bottom: 20px;
+}
+
+.lid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 90px;
+  background: linear-gradient(135deg, #f8bbd0 70%, #ce93d8 100%);
+  border-top-left-radius: 18px 36px;
+  border-top-right-radius: 18px 36px;
+  z-index: 3;
+  cursor: pointer;
+  transition: transform 1s cubic-bezier(.77,0,.18,1);
+  box-shadow: 0 2px 8px rgba(233,30,99,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lid::after {
+  content: "💌";
+  font-size: 2.5em;
+  color: #e91e63;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.lid.open {
+  transform: rotateX(70deg) translateY(-40px);
+  z-index: 1;
+}
+
+.body {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  width: 280px;
+  height: 135px;
+  background: linear-gradient(135deg, #fff0f5 70%, #e1bee7 100%);
+  border-bottom-left-radius: 18px 36px;
+  border-bottom-right-radius: 18px 36px;
+  box-shadow: 0 4px 16px rgba(199,21,133,0.10);
+  z-index: 2;
+  border: 2px solid #e91e63;
+}
+
+.body::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 30px;
+  background: #e91e63;
+  border-radius: 0 0 30px 30px;
+  opacity: 0.15;
+}
+
+.letter {
+  position: absolute;
+  top: 60px;
+  left: 25px;
+  width: 230px;
+  height: 110px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(199,21,133,0.18);
+  z-index: 0;
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition: opacity 0.7s cubic-bezier(.77,0,.18,1), transform 0.7s cubic-bezier(.77,0,.18,1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 2px solid #e91e63;
+}
+
+.letter.pop {
+  opacity: 1;
+  transform: translateY(-30px) scale(1.05);
+  z-index: 100;
+}
+
+.letter-content {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.7s cubic-bezier(.77,0,.18,1), transform 0.7s cubic-bezier(.77,0,.18,1);
+  padding: 12px;
+  text-align: center;
+  color: #c71585;
+  font-family: 'Segoe Script', cursive, sans-serif;
+  font-size: 0.7em;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(199,21,133,0.12);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  pointer-events: auto;
+  overflow: hidden;
+}
+
+.letter-content h2 {
+  color: #e91e63;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.letter-content p {
+  color: #c71585;
+  font-size: 0.8em;
+  line-height: 1.6;
+  max-width: 80%;
+  margin: 0 auto;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.letter-content.show {
+  opacity: 1;
+  transform: scale(1.08);
+  box-shadow: 0 8px 32px rgba(199,21,133,0.15);
+}
+
+.letter-content.fly-away {
+  animation: flyAway 1.2s forwards;
+}
+
+@keyframes flyAway {
+  0% {
+    opacity: 1;
+    transform: scale(1.08) translate(0,0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5) translate(-60vw, -60vh) rotate(-20deg);
+  }
+}
+
+.envelope.hide {
+  animation: fadeOutEnvelope 0.8s forwards;
+}
+
+@keyframes fadeOutEnvelope {
+  to {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* Photo pop-up styles */
+.photo-gallery {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+  background: rgba(255,240,245,0.95);
+}
+
+.photo-gallery img {
+  width: 22vw;
+  height: 22vw;
+  object-fit: cover;
+  margin: 1vw;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(199,21,133,0.18);
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.6s, transform 0.6s;
+}
+
+.photo-gallery img.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Tap lid text styling */
+.tap-lid-text {
+  color: #c71585;
+  font-size: 1.1em;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 20px;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}

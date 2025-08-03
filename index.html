@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For My Love</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Password Screen -->
+    <div class="screen active" id="screen-password">
+      <div class="card">
+        <div class="corner top-left">❀</div>
+        <div class="corner top-right">❀</div>
+        <div class="corner bottom-left">❀</div>
+        <div class="corner bottom-right">❀</div>
+        <h1>Our Anniversary Date<span class="heart">❤</span></h1>
+        <input type="password" id="pwd" placeholder="Our Anniversary Date My Love" readonly />
+
+        <div class="keypad-3x4">
+          <button onclick="press(1)">1</button>
+          <button onclick="press(2)">2</button>
+          <button onclick="press(3)">3</button>
+          <button onclick="press(4)">4</button>
+          <button onclick="press(5)">5</button>
+          <button onclick="press(6)">6</button>
+          <button onclick="press(7)">7</button>
+          <button onclick="press(8)">8</button>
+          <button onclick="press(9)">9</button>
+          <button class="clear" onclick="clearInput()">Clear</button>
+          <button onclick="press(0)">0</button>
+          <button class="confirm" onclick="confirmInput()">Confirm</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Countdown Screen -->
+    <div class="screen" id="screen-countdown">
+      <div id="countdownDisplay">3s</div>
+    </div>
+
+    <!-- Greeting Screen -->
+    <div class="screen" id="screen-greeting">
+      <div class="greeting-card">
+        <div class="border-text">I love you I love you I love you</div>
+        <div class="oval">
+          <h1>Happy 5<sup>th</sup>Anniversary!</h1>
+          
+          <div class="bow">🎀</div>
+        </div>
+        <div class="border-text">love you so much Bby </div>
+        <div class="buttons">
+          <button onclick="goToScreen('screen-options')">Next</button>
+          <button onclick="goToScreen('screen-password')">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Options Screen -->
+    <div class="screen" id="screen-options">
+      <div class="envelope-container">
+        <div class="envelope">
+          <div class="lid" id="lid" onclick="openEnvelope()"></div>
+          <div class="body"></div>
+          <div class="letter" id="letter" onclick="showLetter()">
+            <div class="letter-content" id="letterContent">
+              <h2>PHYU</h2>
+              <p>
+                Happy 5<sup>th</sup>Anniversary!<br>
+                From best friends to soulmates, What a journey it has been.
+                We started with ups and downs, doubts and challenges, but we never gave up.
+                We talked, we listened, and we grew.
+                Now, five years later, we're still standing strong — still dreaming, still choosing each other every day.
+
+                No matter what comes our way, I'll always be with you, building our future together.
+                I love you endlessly. 💖<br>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="tap-lid-text">Tap the lid to open the envelope</div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html> 
