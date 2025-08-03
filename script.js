@@ -25,8 +25,39 @@ function confirmInput() {
   if (inputString === password) {
     startCountdown();
   } else {
-    alert("Incorrect password. Please try again.");
+    showCuteError();
     clearInput();
+  }
+}
+
+function showCuteError() {
+  // Create error message element
+  const errorDiv = document.createElement('div');
+  errorDiv.className = 'cute-error';
+  errorDiv.innerHTML = `
+    <div class="error-content">
+      <div class="error-icon">😔</div>
+      <h3>Oops! Wrong password</h3>
+      <p>Try again, my love! 💕</p>
+      <button onclick="closeCuteError()" class="error-button">OK</button>
+    </div>
+  `;
+  
+  document.body.appendChild(errorDiv);
+  
+  // Animate in
+  setTimeout(() => {
+    errorDiv.classList.add('show');
+  }, 10);
+}
+
+function closeCuteError() {
+  const errorDiv = document.querySelector('.cute-error');
+  if (errorDiv) {
+    errorDiv.classList.remove('show');
+    setTimeout(() => {
+      errorDiv.remove();
+    }, 300);
   }
 }
 

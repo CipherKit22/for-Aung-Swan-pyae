@@ -511,6 +511,129 @@ input[type="password"]:focus {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* ===== CUTE ERROR MESSAGE ===== */
+.cute-error {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 182, 193, 0.9);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cute-error.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.error-content {
+  background: linear-gradient(135deg, #fff0f5 0%, #fce4ec 50%, #f8bbd9 100%);
+  border-radius: 25px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(233, 30, 99, 0.3), 0 10px 20px rgba(0, 0, 0, 0.1);
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  max-width: 350px;
+  width: 90%;
+  animation: errorBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes errorBounce {
+  0% {
+    transform: scale(0.3) rotate(-10deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05) rotate(2deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.error-icon {
+  font-size: 4em;
+  margin-bottom: 15px;
+  animation: errorIconSway 2s ease-in-out infinite;
+}
+
+@keyframes errorIconSway {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+.error-content h3 {
+  color: #e91e63;
+  font-family: "Comic Sans MS", cursive;
+  font-size: 1.5em;
+  margin: 15px 0 10px 0;
+  background: linear-gradient(45deg, #e91e63, #ff6b9d, #f06292);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+.error-content p {
+  color: #c71585;
+  font-family: "Comic Sans MS", cursive;
+  font-size: 1.1em;
+  margin: 15px 0 25px 0;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.error-button {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+  border: none;
+  border-radius: 20px;
+  padding: 12px 30px;
+  color: white;
+  font-family: "Comic Sans MS", cursive;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 154, 158, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.error-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.error-button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 154, 158, 0.6);
+  background: linear-gradient(135deg, #ff6b9d 0%, #f093fb 100%);
+}
+
+.error-button:hover::before {
+  left: 100%;
+}
+
+.error-button:active {
+  transform: translateY(0) scale(1.02);
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 
 /* Mobile devices (phones) - 320px to 768px */
