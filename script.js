@@ -23,10 +23,79 @@ function clearInput() {
 
 function confirmInput() {
   if (inputString === password) {
+    playBackgroundMusic();
     startCountdown();
   } else {
     showCuteError();
     clearInput();
+  }
+}
+
+function playBackgroundMusic() {
+  const music = document.getElementById('backgroundMusic');
+  if (music) {
+    // Set volume to a comfortable level
+    music.volume = 0.3;
+    
+    // Try to play the music
+    music.play().then(() => {
+      console.log('Background music started playing');
+    }).catch((error) => {
+      console.log('Could not play background music:', error);
+      // If audio file doesn't exist, create a simple tone using Web Audio API
+      createSimpleBackgroundTone();
+    });
+  }
+}
+
+function createSimpleBackgroundTone() {
+  // Create a simple pleasant background tone using Web Audio API
+  try {
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    
+    // Create a gentle, romantic melody
+    const playNote = (frequency, startTime, duration) => {
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+      
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+      
+      oscillator.frequency.setValueAtTime(frequency, startTime);
+      oscillator.type = 'sine';
+      
+      // Gentle fade in and out
+      gainNode.gain.setValueAtTime(0, startTime);
+      gainNode.gain.linearRampToValueAtTime(0.1, startTime + 0.1);
+      gainNode.gain.linearRampToValueAtTime(0.05, startTime + duration - 0.1);
+      gainNode.gain.linearRampToValueAtTime(0, startTime + duration);
+      
+      oscillator.start(startTime);
+      oscillator.stop(startTime + duration);
+    };
+    
+    // Simple romantic melody (C major scale)
+    const melody = [
+      {note: 523.25, duration: 0.8}, // C5
+      {note: 587.33, duration: 0.8}, // D5
+      {note: 659.25, duration: 0.8}, // E5
+      {note: 698.46, duration: 1.2}, // F5
+      {note: 659.25, duration: 0.8}, // E5
+      {note: 587.33, duration: 0.8}, // D5
+      {note: 523.25, duration: 1.6}, // C5
+    ];
+    
+    let currentTime = audioContext.currentTime;
+    
+    // Play the melody once
+    melody.forEach(({note, duration}) => {
+      playNote(note, currentTime, duration);
+      currentTime += duration + 0.2; // Small pause between notes
+    });
+    
+    console.log('Simple background tone created');
+  } catch (error) {
+    console.log('Web Audio API not supported:', error);
   }
 }
 
